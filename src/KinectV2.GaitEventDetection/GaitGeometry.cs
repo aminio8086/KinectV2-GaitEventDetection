@@ -69,7 +69,7 @@ namespace KinectV2.GaitEventDetection
                 floorPlane.C * joint.Z +
                 floorPlane.D;
 
-            return Math.Abs(numerator / denominator);
+            return numerator / denominator;
         }
     }
 }

@@ -54,3 +54,13 @@ The cleaned release:
 - uses explicit units in names;
 - removes dead/commented prototype code;
 - does not silently add later Kinect4FOG algorithms to the 2017 method.
+
+## Historical dead constants intentionally excluded
+
+The ankle-height source declared `_disanceThresholdDOWN = 0.115f` and
+`_strideThresholdMax = 900`, but neither value was used by the active gait
+analysis methods in the recovered source. They are therefore documented here
+rather than carried into the cleaned reference implementation.
+
+The active comparison logic used `_disanceThresholdUP = 0.14f` and
+`_strideThresholdMin = 250`.

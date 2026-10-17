@@ -23,9 +23,12 @@ preferred-citation:
     A New Technique for Foot-Off and Foot Contact Detection in a Gait Cycle
     Based on the Knee Joint Angle Using Microsoft Kinect v2
   year: 2017
-  conference:
-    name: >-
-      2017 IEEE EMBS International Conference on Biomedical & Health
-      Informatics (BHI)
+  collection-title: >-
+    Proceedings of the 2017 IEEE EMBS International Conference on Biomedical
+    & Health Informatics (BHI)
+  publisher:
+    name: Institute of Electrical and Electronics Engineers
+  start: 153
+  end: 156
   doi: 10.1109/BHI.2017.7897228
   url: https://doi.org/10.1109/BHI.2017.7897228
