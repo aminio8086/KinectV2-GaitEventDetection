@@ -13,6 +13,8 @@ All notable changes to this cleaned research release will be documented here.
 - Configurable ankle-height threshold with the historical 0.14 m default.
 - Deterministic geometry helpers independent of the Kinect SDK.
 - Dependency-free smoke tests.
+- Exact 200 ms and 250 ms boundary-condition checks.
+- Validation documentation separating paper evidence, historical source evidence and release-level checks.
 - Build, algorithm and provenance documentation.
 - Apache-2.0 licensing and machine-readable citation metadata.
 
