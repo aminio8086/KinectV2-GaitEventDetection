@@ -1,0 +1,16 @@
+KinectV2 Gait Event Detection
+Copyright (c) Amin Amini
+
+Licensed under the Apache License, Version 2.0.
+
+Associated publication:
+A New Technique for Foot-Off and Foot Contact Detection in a Gait Cycle
+Based on the Knee Joint Angle Using Microsoft Kinect v2
+
+A. Amini, K. Banitsas and S. Hosseinzadeh
+2017 IEEE EMBS International Conference on Biomedical & Health Informatics (BHI)
+https://doi.org/10.1109/BHI.2017.7897228
+
+This repository contains a cleaned reference implementation reconstructed from
+the author's historical research source code. The IEEE publication itself is
+not included and remains subject to the publisher's copyright.
