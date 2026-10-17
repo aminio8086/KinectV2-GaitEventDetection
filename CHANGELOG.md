@@ -4,6 +4,8 @@ All notable changes to this cleaned research release will be documented here.
 
 ## [Unreleased]
 
+## [1.0.0] - 2026-10-17
+
 ### Added
 
 - Focused reference implementation of the published knee-angle gait-event method.
