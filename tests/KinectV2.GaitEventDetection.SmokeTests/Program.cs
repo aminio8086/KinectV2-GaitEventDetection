@@ -15,8 +15,10 @@ namespace KinectV2.GaitEventDetection.SmokeTests
                 TestStraightLegAngle();
                 TestKneeAngleEvents();
                 TestKneeAngleShortEventRejected();
+                TestKneeAngleExactBoundaryRejected();
                 TestAnkleDistance();
                 TestAnkleHeightEvents();
+                TestAnkleHeightExactBoundaryRejected();
 
                 Console.WriteLine("All smoke tests passed.");
                 return 0;
@@ -113,6 +115,33 @@ namespace KinectV2.GaitEventDetection.SmokeTests
                 "Return within 200 ms should be rejected.");
         }
 
+        private static void TestKneeAngleExactBoundaryRejected()
+        {
+            KneeAngleGaitEventDetector detector =
+                new KneeAngleGaitEventDetector();
+
+            JointPosition hip = new JointPosition(0.0, 1.0, 0.0);
+            JointPosition knee = new JointPosition(0.0, 0.5, 0.0);
+            JointPosition straightAnkle = new JointPosition(0.0, 0.0, 0.0);
+            JointPosition bentAnkle = new JointPosition(0.25, 0.1, 0.0);
+
+            detector.Update(
+                Leg.Left,
+                hip,
+                knee,
+                bentAnkle,
+                TimeSpan.FromMilliseconds(100));
+
+            AssertNull(
+                detector.Update(
+                    Leg.Left,
+                    hip,
+                    knee,
+                    straightAnkle,
+                    TimeSpan.FromMilliseconds(300)),
+                "Exactly 200 ms must be rejected; the published rule is more than 200 ms.");
+        }
+
         private static void TestAnkleDistance()
         {
             FloorPlane floor = new FloorPlane(0.0, 1.0, 0.0, 0.0);
@@ -162,6 +191,28 @@ namespace KinectV2.GaitEventDetection.SmokeTests
                 footContact,
                 GaitEventType.FootContact,
                 "Return after more than 250 ms should trigger foot contact.");
+        }
+
+        private static void TestAnkleHeightExactBoundaryRejected()
+        {
+            AnkleHeightGaitEventDetector detector =
+                new AnkleHeightGaitEventDetector();
+
+            FloorPlane floor = new FloorPlane(0.0, 1.0, 0.0, 0.0);
+
+            detector.Update(
+                Leg.Right,
+                new JointPosition(0.0, 0.16, 0.0),
+                floor,
+                TimeSpan.FromMilliseconds(100));
+
+            AssertNull(
+                detector.Update(
+                    Leg.Right,
+                    new JointPosition(0.0, 0.10, 0.0),
+                    floor,
+                    TimeSpan.FromMilliseconds(350)),
+                "Exactly 250 ms must be rejected; the baseline rule is more than 250 ms.");
         }
 
         private static void AssertEvent(
